@@ -1,0 +1,60 @@
+﻿@model CurrencyConverterViewModel
+@{
+
+
+}
+<body id="CurrencyPage">
+    <div class="text-center">
+        <h1 class="display-4">Currency's</h1>
+    </div>
+    <div class="input-group mb-3">
+        <h1>Convert your Currency at the click of a button <span class="badge bg-secondary">$ € ¥</span></h1>
+    </div>
+    <form method="post" action="~/CurrencyConverter/Convert">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Enter Amount </span>
+            <input type="number" name="Amount" class="form-control" aria-label="Amount()">
+            <span class="input-group-text"></span>
+        </div>
+         <div>
+             <label for="Fromcurrency">
+                 From Currency 
+             </label> 
+             <select name="FromCurrency">
+                @foreach(string currency in Model.CurrencyList)
+                {
+                    <option value="@currency">
+                     @currency
+                    </option>
+                }
+            </select>
+         </div>
+        <br>
+        <div>
+            <label for="ToCurrency">
+                To Currency
+            </label>
+            <select class ="list-group"name="ToCurrency">
+                @foreach (string currency in Model.CurrencyList)
+                {
+                    <option class ="list-group-item-action"value="@currency">
+                        @currency
+                    </option>
+                }
+            </select>
+        </div>
+       
+        <br>
+        <div class="input-group mb-3">
+            <span class="input-group-text"> Converted Amount </span>
+            <input type="text" value ="@Model.ConvertedAmount"class="form-control" aria-label="Converted Amount">
+            <span class="input-group-text"></span>
+        </div>
+        <div>
+            <button class="btn btn-outline-success" type="submit">
+                Enter
+            </button>
+        </div>
+    </form>
+
+</body>

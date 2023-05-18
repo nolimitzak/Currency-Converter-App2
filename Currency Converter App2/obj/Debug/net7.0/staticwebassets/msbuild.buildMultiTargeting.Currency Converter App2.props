@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Currency Converter App2.props" />
+</Project>
